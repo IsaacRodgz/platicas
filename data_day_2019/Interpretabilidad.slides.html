@@ -11905,7 +11905,10 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Interpretabilidad-en-modelos-de-aprendizaje-de-m&#225;quina">Interpretabilidad en modelos de aprendizaje de m&#225;quina<a class="anchor-link" href="#Interpretabilidad-en-modelos-de-aprendizaje-de-m&#225;quina">&#182;</a></h2><p>M.Sc. Liliana Millán, liliana@datank.ai</p>
+<h2 id="Interpretabilidad-en-modelos-de-aprendizaje-de-m&#225;quina">Interpretabilidad en modelos de aprendizaje de m&#225;quina<a class="anchor-link" href="#Interpretabilidad-en-modelos-de-aprendizaje-de-m&#225;quina">&#182;</a></h2><ul>
+<li>M.Sc. Liliana Millán, liliana@datank.ai</li>
+<li>Twitter: @silil3</li>
+</ul>
 
 </div>
 </div>
@@ -11915,10 +11918,12 @@ a.anchor-link {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Agenda">Agenda<a class="anchor-link" href="#Agenda">&#182;</a></h2><ul>
-<li>Contexto</li>
-<li>Interpretabilidad en machine learning</li>
-<li>¿Cómo funciona?</li>
+<li>Interpretabilidad</li>
+<li>Interpretabilidad en ML</li>
+<li>LIME</li>
+<li>Casos de uso</li>
 <li>Ejemplo</li>
+<li>Otros métodos</li>
 </ul>
 
 </div>
@@ -11928,40 +11933,17 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Contexto">Contexto<a class="anchor-link" href="#Contexto">&#182;</a></h3><p>Situación hipotética:</p>
+<h3 id="Interpretabilidad">Interpretabilidad<a class="anchor-link" href="#Interpretabilidad">&#182;</a></h3><ul>
+<li>Interpretabilidad: El grado en el que un <strong>humano</strong> puede entender la causa de una decisión.</li>
+<li>Nos permite identificar y evitar tener sesgo, injusticia, inequidad en los modelos que generamos.</li>
+</ul>
+<p><strong>Ejemplos:</strong></p>
 <ul>
-<li><em>Fairness:</em> Equidad, Sesgo, Justo.</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Interpretabilidad-en-Machine-Learning">Interpretabilidad en Machine Learning<a class="anchor-link" href="#Interpretabilidad-en-Machine-Learning">&#182;</a></h3><ul>
-<li>Unión Europea - GDPR: <em>"Right to explanation"</em> (Mayo 2018)</li>
-<li>Aplicable a modelos de aprendizaje supervisado</li>
-<li>El chisme: es ilegal ocupar Deep Learning en Europa</li>
-<li><em>Why should I trust you?</em></li>
-</ul>
-
-</div>
-</div>
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#191;C&#243;mo-funciona?">&#191;C&#243;mo funciona?<a class="anchor-link" href="#&#191;C&#243;mo-funciona?">&#182;</a></h3><p>LIME: <strong>L</strong>ocal <strong>I</strong>nterpretable <strong>M</strong>odel-Agnostic <strong>E</strong>xplanations</p>
-<ul>
-<li>Objetivo: Conocer el comportamiento del modelo (sin importar cuál$^{*}$)</li>
-<li>Características: <ul>
-<li>Modificar las entradas cercanas a la observación </li>
-<li>Generar un modelo local muy sencillo e interpretable -i.e. regresión lineal-  </li>
-</ul>
-</li>
+<li>COMPAS (US): Predecir si alguien reincidirá en cometer un delito.</li>
+<li>PredPol (US): Predecir cuándo y en dónde habrá un crímen. El algoritmo aprende de reportes de policías, no necesariamente crímenes cometidos.</li>
+<li>Facial Recognition (IBM, Microsoft, Megvii): Reconocimiento para hombres blancos 99%, mujeres afroamericanas 35% ...</li>
+<li>Búsqueda de imágenes en Google para CEO: Solo muestra a mujeres 11%.</li>
+<li>Facebook automatic translation: Arresto de un palestino por traducción incorrecta de "buenos días" en hebreo a "atácalos".</li>
 </ul>
 
 </div>
@@ -11971,58 +11953,126 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#191;C&#243;mo-funciona?">&#191;C&#243;mo funciona?<a class="anchor-link" href="#&#191;C&#243;mo-funciona?">&#182;</a></h3><ul>
-<li>Algoritmo:<ul>
-<li>Seleccionar una observación a interpretar</li>
-<li>Generar perturbaciones "alrededor" de esta observación</li>
-<li>Construir un modelo sencillo</li>
-</ul>
-</li>
-</ul>
+<h3 id="Algo-m&#225;s-personal">Algo m&#225;s personal<a class="anchor-link" href="#Algo-m&#225;s-personal">&#182;</a></h3><p>... 19S</p>
+<p>Tener interpretabilidad en el modelo nos brinda más confianza en que lo estamos haciendo correctamente -además de las métricas de desempeño-.</p>
 
 </div>
 </div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">datasets</span> 
-
-<span class="n">iris_data</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_iris</span><span class="p">()</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">iris_data</span><span class="o">.</span><span class="n">data</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">iris_data</span><span class="o">.</span><span class="n">target</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">[:</span><span class="mi">3</span><span class="p">,],</span> <span class="n">y</span><span class="p">[:</span><span class="mi">3</span><span class="p">])</span>
-</pre></div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Interpretabilidad-en-ML">Interpretabilidad en ML<a class="anchor-link" href="#Interpretabilidad-en-ML">&#182;</a></h3><ul>
+<li>Unión Europea - GDPR: <em>"Right to explanation"</em> (Mayo 2018).</li>
+<li>Aplicable a modelos de aprendizaje supervisado.</li>
+<li>El chisme: es ilegal ocupar Deep Learning en Europa.</li>
+<li>Preferimos ocupar Regresión lineal, logística, árboles por que nos permiten entender por qué se están tomando esas decisiones.</li>
+<li><em>Why should I trust you?</em> (2016).</li>
+</ul>
 
 </div>
 </div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[[5.1 3.5 1.4 0.2]
- [4.9 3.  1.4 0.2]
- [4.7 3.2 1.3 0.2]] [0 0 0]
-</pre>
-</div>
-</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="LIME">LIME<a class="anchor-link" href="#LIME">&#182;</a></h3><p><em>Local Interpertable Model-Agnostic Explanation</em></p>
+<p><strong>Objetivo:</strong> Tener explicaciones que un humano pueda comprender de cualquier modelo (supervisado) a través de un modelo local más simple.</p>
+<p><strong>Suposición:</strong> Un modelo complejo es lineal en una escala local.</p>
+<ul>
+<li><em>Model Agnostic:</em> Tratamos al modelo "complejo" utilizado como una caja negra a la que metemos observaciones y nos entrega predicciones.</li>
+<li><em>Interpretable:</em> Que la explicación pueda ser entendida por un humano.</li>
+<li><em>Local:</em> Un modelo simple es lo suficientemente bueno/igual de bueno localmente que uno complejo globalmente (Why should I trust you?)</li>
+</ul>
 
 </div>
 </div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="LIME">LIME<a class="anchor-link" href="#LIME">&#182;</a></h3><p><img src="images/lime.png" alt="">
+<br>
+Fuente: <a href="https://arxiv.org/pdf/1602.04938.pdf">Why should I trust you?</a></p>
 
 </div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#191;C&#243;mo-funciona?">&#191;C&#243;mo funciona?<a class="anchor-link" href="#&#191;C&#243;mo-funciona?">&#182;</a></h3><p>Ingeniería inversa: Modificamos las entradas, las pasamos por la "caja negra", observamos los resultados.</p>
+<p><img src="images/frog_lime.png" alt="">
+<br>
+Fuente: <a href="https://www.oreilly.com/learning/introduction-to-local-interpretable-model-agnostic-explanations-lime">Local Interpretable Model-Agnostic Explanations (LIME): An Introduction</a></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#191;C&#243;mo-funciona?">&#191;C&#243;mo funciona?<a class="anchor-link" href="#&#191;C&#243;mo-funciona?">&#182;</a></h3><p><img src="images/huskie_lime.png" alt="">
+<br>
+<a href="https://arxiv.org/pdf/1602.04938.pdf">Why should I trust you?</a></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#191;C&#243;mo-funciona?">&#191;C&#243;mo funciona?<a class="anchor-link" href="#&#191;C&#243;mo-funciona?">&#182;</a></h3><p><img src="images/lime_explanation.png" alt=""></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Beneficios">Beneficios<a class="anchor-link" href="#Beneficios">&#182;</a></h3><ul>
+<li>Identificar si podemos confiar en las predicciones de un modelo como científico de datos</li>
+<li>Generar confianza al usuario sobre las predicciones que genera un modelo</li>
+<li>Brindar </li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Desventajas">Desventajas<a class="anchor-link" href="#Desventajas">&#182;</a></h3><ul>
+<li>Definir la vecindad adecuada para generar el modelo lineal</li>
+<li></li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Casos-de-Uso">Casos de Uso<a class="anchor-link" href="#Casos-de-Uso">&#182;</a></h3><ul>
+<li>Validación de desempeño entre diferentes modelos.</li>
+<li>Interpretabilidad en modelos complejos: SVM, RF, Redes Neuronales: Clásicas, Profundas, Convolucionales, Recurrentes, etc.</li>
+<li>Brindarle una explicación al usuario/afectado final.</li>
+<li>El algoritmo de aprendizaje tiene que ser supervisado.</li>
+<li>Los datos pueden ser tabulares, imágenes o texto.</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -12036,7 +12086,7 @@ a.anchor-link {
 
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -12052,60 +12102,112 @@ a.anchor-link {
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">explainer_rf</span> <span class="o">=</span> <span class="n">lime_tabular</span><span class="o">.</span><span class="n">LimeTabularExplainer</span><span class="p">(</span><span class="n">training_data</span><span class="o">=</span><span class="n">train_data_selected</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="c1">#el set de entrenamiento con el que se entreno el rf</span>
-                                                 <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;classification&quot;</span><span class="p">,</span>
-                                                 <span class="n">feature_names</span><span class="o">=</span><span class="n">feature_names</span><span class="p">,</span> <span class="c1">#nombre de las variables, en el orden que se envian</span>
-                                                 <span class="n">class_names</span><span class="o">=</span><span class="n">class_names</span><span class="p">,</span><span class="c1">#el nombre de las etiquetas de clasificación</span>
-                                                 <span class="n">kernel_width</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span> <span class="c1">#el tamaño de la ventana para generar datos (mientras más pequeño más cercano a los valores reales)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">explainer_rf</span> <span class="o">=</span> <span class="n">lime_tabular</span><span class="o">.</span><span class="n">LimeTabularExplainer</span><span class="p">(</span>
+    <span class="n">training_data</span><span class="o">=</span><span class="n">train_data_selected</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="c1">#el set de entrenamiento con el que se entreno el rf</span>
+    <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;classification&quot;</span><span class="p">,</span>
+    <span class="n">feature_names</span><span class="o">=</span><span class="n">feature_names</span><span class="p">,</span> <span class="c1">#nombre de las variables, en el orden que se envian</span>
+    <span class="n">class_names</span><span class="o">=</span><span class="n">class_names</span><span class="p">,</span><span class="c1">#el nombre de las etiquetas de clasificación</span>
+    <span class="n">kernel_width</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span> <span class="c1">#el tamaño de la ventana para generar datos (mientras más pequeño más cercano a los valores reales)</span>
                                                 
 <span class="c1">#single prediction</span>
-<span class="n">sp</span> <span class="o">=</span> <span class="n">explainer_rf</span><span class="o">.</span><span class="n">explain_instance</span><span class="p">(</span><span class="n">test_obs_1</span><span class="p">,</span> <span class="n">modelo_lco</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">,</span> <span class="n">num_features</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">sp</span> <span class="o">=</span> <span class="n">explainer_rf</span><span class="o">.</span><span class="n">explain_instance</span><span class="p">(</span><span class="n">test_obs_1</span><span class="p">,</span> <span class="n">modelo_lco</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">,</span> <span class="n">num_features</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="c1">#sp.show_in_notebook(show_table=True, show_all=False)</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-2-23badea85b32&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> explainer_rf = lime_tabular.LimeTabularExplainer(training_data=train_data_selected.values, #el set de entrenamiento con el que se entreno el rf
-</span><span class="ansi-green-intense-fg ansi-bold">      2</span>                                                  mode<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#34;classification&#34;</span><span class="ansi-blue-fg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span>                                                  feature_names<span class="ansi-blue-fg">=</span>feature_names<span class="ansi-blue-fg">,</span> <span class="ansi-red-fg">#nombre de las variables, en el orden que se envian</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span>                                                      class_names<span class="ansi-blue-fg">=</span>class_names<span class="ansi-blue-fg">,</span><span class="ansi-red-fg">#el nombre de las etiquetas de clasificación</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span>                                                      kernel_width=0.75) #el tamaño de la ventana para generar datos (mientras más pequeño más cercano a los valores reales)
-
-<span class="ansi-red-fg">NameError</span>: name &#39;lime_tabular&#39; is not defined</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Otros-m&#233;todos-para-interpretar">Otros m&#233;todos para interpretar<a class="anchor-link" href="#Otros-m&#233;todos-para-interpretar">&#182;</a></h3><p>+</p>
+<p><img src="images/explanation_1.png" alt=""></p>
 
 </div>
 </div>
-</div></section></section>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sp_2</span> <span class="o">=</span> <span class="n">explainer_rf</span><span class="o">.</span><span class="n">explain_instance</span><span class="p">(</span><span class="n">test_obs_2</span><span class="p">,</span> <span class="n">modelo_lco</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">,</span> <span class="n">num_features</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="c1">#sp_2.show_in_notebook(show_table=True, show_all=False)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="images/explanation_2.png" alt=""></p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Ejemplo-(...-de-la-vida-real)">Ejemplo (... de la vida real)<a class="anchor-link" href="#Ejemplo-(...-de-la-vida-real)">&#182;</a></h3><ul>
+<li>LIME nos permite tener interpretabilidad por observación</li>
+<li>Tenemos alrededor de 5k observaciones a aplicar un modelo local</li>
+<li>Se necesita hacer un pipeline para correr esos modelos en paralelo</li>
+</ul>
+<p><img src="images/user_explanation.png" alt=""></p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Otros-m&#233;todos-para-interpretar">Otros m&#233;todos para interpretar<a class="anchor-link" href="#Otros-m&#233;todos-para-interpretar">&#182;</a></h3><ul>
+<li>Partial Dependence Plot (PDP)</li>
+<li>Shapley Values</li>
+<li>Accumulated Local Effects</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Algunos-consejos">Algunos consejos<a class="anchor-link" href="#Algunos-consejos">&#182;</a></h3><ul>
+<li>Trata cada modelo que desarrollas como una afectación de vida o muerte a un humano directamente.</li>
+<li>Identifica si es posibleq ue estes agregando sesgo, inequidad, injusticia con interpretabilidad.</li>
+<li>Siempre que tengas un modelo de aprendizaje supervisado ocupa interpretabilidad en tu proceso de desarrollo.</li>
+<li>Siempre que tengas un modelo de aprendizaje supervisado genera interpretabilidad para el usuario final.</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Referencias">Referencias<a class="anchor-link" href="#Referencias">&#182;</a></h3><ul>
+<li><a href="https://github.com/marcotcr/lime">LIME</a></li>
+<li><a href="https://arxiv.org/pdf/1602.04938.pdf">Why should I trust you?</a></li>
+<li><a href="https://christophm.github.io/interpretable-ml-book">Interpretable Machine Learning</a></li>
+</ul>
+
+</div>
+</div>
+</div>
 </div>
 </div>
 
